@@ -10,7 +10,7 @@ const emailer = require('../middleware/emailer')
 //GETS ALL EMPLOYEES
 exports.employees_get_all = async (req, res) => {
     try {
-        const Employees = await employee.find();
+        const Employees = await employee.find()
         res.json(Employees)
     } catch (err) {
         res.json({
@@ -24,7 +24,7 @@ exports.employee_get = async (req, res) => {
     try {
         const Employee = await employee.findById(req.params.employeeID);
         res.json(Employee);
-    } catch {
+    } catch (err) {
         res.json({
             message: err
         })

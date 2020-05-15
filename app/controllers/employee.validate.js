@@ -1,7 +1,6 @@
 const {
     validationResult
 } = require('../middleware/utils');
-const validator = require('validator')
 const {
     check
 } = require('express-validator');
@@ -43,6 +42,43 @@ exports.employees_get_all = [
     .isEmpty()
     .withMessage('IS_EMPTY')
     .trim(),
+    (req, res, next) => {
+        validationResult(req, res, next)
+    }
+]
+
+exports.employee_get = [
+    check('employeeID')
+    .exists()
+    .withMessage('MISSING')
+    .not()
+    .isEmpty()
+    .withMessage('ID_IS_EMPTY'),
+    (req, res, next) => {
+        validationResult(req, res, next)
+    }
+]
+
+
+exports.delete_employee = [
+    check('employeeID')
+    .exists()
+    .withMessage('MISSING')
+    .not()
+    .isEmpty()
+    .withMessage('ID_IS_EMPTY'),
+    (req, res, next) => {
+        validationResult(req, res, next)
+    }
+]
+
+exports.edit_employee = [
+    check('employeeID')
+    .exists()
+    .withMessage('MISSING ID')
+    .not()
+    .isEmpty()
+    .withMessage('ID is missing'),
     (req, res, next) => {
         validationResult(req, res, next)
     }
