@@ -101,7 +101,7 @@ exports.edit_project = async (req, res) => {
             _id: req.params.projectID
         }, {
             $set: {
-                firstName: req.body.firstName
+                clientProjectName: req.body.clientProjectName
             }
         })
         res.json(updatedProject)

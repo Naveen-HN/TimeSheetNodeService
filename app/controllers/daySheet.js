@@ -81,7 +81,7 @@ exports.edit_daySheet = async (req, res) => {
             _id: req.params.daySheetID
         }, {
             $set: {
-                firstName: req.body.firstName
+                daySheetID: req.body.daySheetID
             }
         })
         res.json(updatedDaySheet)

@@ -19,7 +19,6 @@
     "lint": "eslint --fix --config .eslintrc.json \"**/*.js\"",
     "remark": "remark . -o"
   },
-  
   "dependencies": {
     "bcrypt": "^4.0.1",
     "body-parser": "^1.19.0",

@@ -20,7 +20,7 @@ exports.counters_get_all = async (req, res) => {
 
 exports.counter_get = async (req, res) => {
     try {
-        const Counter = await counter.findById(req.params._id);
+        const Counter = await counter.findById(req.params.CounterID);
         res.json(Counter);
     } catch {
         res.json({
@@ -34,11 +34,11 @@ exports.counter_get = async (req, res) => {
 exports.create_counter = async (req, res) => {
     try {
         const {
-            _id,
+            CounterID,
             seq
         } = req.body;
         const Counter = new counter({
-            _id: _id,
+            CounterID: CounterID,
             seq: seq
         })
         await Counter.save();
@@ -53,7 +53,7 @@ exports.create_counter = async (req, res) => {
 exports.delete_counter = async (req, res) => {
     try {
         const removedCounter = await counter.remove({
-            _id: req.params._id
+            _id: req.params.CounterID
         })
         res.json(removedCounter)
     } catch (err) {
@@ -66,10 +66,10 @@ exports.delete_counter = async (req, res) => {
 exports.edit_counter = async (req, res) => {
     try {
         const updatedCounter = await counter.updateOne({
-            _id: req.params._id
+            _id: req.params.CounterID
         }, {
             $set: {
-                firstName: req.body.firstName
+                CounterID: req.body.CounterID
             }
         })
         res.json(updatedCounter)
