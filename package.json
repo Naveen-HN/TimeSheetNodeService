@@ -11,7 +11,7 @@
     "url": ""
   },
   "scripts": {
-    "start": "cross-env NODE_ENV=production pm2 start server.js",
+    "start": "pm2-runtime start ecosystem.config.js --env production",
     "mocha": "nyc mocha --timeout=5000 --exit",
     "test": "npm run fresh && npm run mocha",
     "dev": "cross-env NODE_ENV=development nodemon server.js",
@@ -21,6 +21,9 @@
     "format": "prettier --write --config .prettierrc.json \"**/*.js\"",
     "lint": "eslint --fix --config .eslintrc.json \"**/*.js\"",
     "remark": "remark . -o"
+  },
+  "env_production": {
+    NODE_ENV: "production",
   },
   "dependencies": {
     "bcrypt": "^4.0.1",
