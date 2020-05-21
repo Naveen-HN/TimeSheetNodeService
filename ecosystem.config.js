@@ -1,6 +1,6 @@
 module.exports = {
   apps: [{
-    script: './server.js',
+    script: 'nodemon server.js',
     instances: "max",
     env: {
       NODE_ENV: "development",
