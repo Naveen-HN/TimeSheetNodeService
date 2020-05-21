@@ -22,9 +22,6 @@
     "lint": "eslint --fix --config .eslintrc.json \"**/*.js\"",
     "remark": "remark . -o"
   },
-  "env_production": {
-    NODE_ENV: "production",
-  },
   "dependencies": {
     "bcrypt": "^4.0.1",
     "body-parser": "^1.19.0",
