@@ -39,10 +39,8 @@ exports.create_vendor = async (req, res) => {
             phoneNumber,
             primaryEmail,
             secondaryEmail,
-            jobCode,
-            jobTitle,
-            projectID,
-            projectName
+            managerName,
+            approverName,
         } = req.body;
         const Vendor = new vendor({
             vendorID: vendorID,
@@ -51,10 +49,8 @@ exports.create_vendor = async (req, res) => {
             phoneNumber: phoneNumber,
             primaryEmail: primaryEmail,
             secondaryEmail: secondaryEmail,
-            jobCode: jobCode,
-            jobTitle: jobTitle,
-            projectID: projectID,
-            projectName: projectName
+            managerName: managerName,
+            approverName: approverName,
         })
         await Vendor.save()
         res.json(Vendor);
